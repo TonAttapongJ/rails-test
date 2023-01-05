@@ -1,0 +1,21 @@
+<div class="w-full max-w-xs mx-auto">
+  <h1 class="text-center font-bold text-4xl w-full max-w-xs">Sign In</h1>
+  <br>
+
+  <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+  <%= form_with url: admin_sessions_sign_in_path, method: :post do |form|%>
+      <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2"><%= form.label :email %></label>
+      <%= form.text_field :email, class: "block border border-grey-light w-full p-3 rounded mb-4", placeholder: "Email"%>
+      </div>
+      <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2"><%= form.label :password %></label>
+      <%= form.text_field :password, class: "block border border-grey-light w-full p-3 rounded mb-4", placeholder: "******************" %>
+      </div>
+      <%= form.submit "Sign In", class: "w-full text-center text-white bg-blue-700 py-3 rounded text-white hover:bg-green-dark focus:outline-none" %>
+  <% end %>
+  </div>
+  <p class="text-center text-gray-500 text-xs">
+  &copy;2020 TonAttapong Corp. All rights reserved.
+  </p>
+</div>

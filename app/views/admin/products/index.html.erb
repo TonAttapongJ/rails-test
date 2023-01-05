@@ -1,0 +1,33 @@
+<div class="w-full">
+<div class="flex justify-between items-center mb-3">
+    <h1 class="font-bold text-4xl">Product</h1>
+    <a href="/admin/products/new" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">New product</a></div>
+<div id="products" class="min-w-full">
+<table class="min-w-full">
+  <thead>
+    <tr>
+      <th class="bg-blue-100 border text-left px-8 py-4">ID</th>
+      <th class="bg-blue-100 border text-left px-8 py-4">Name</th>
+      <th class="bg-blue-100 border text-left px-8 py-4">Description</th>
+      <th class="bg-blue-100 border text-left px-8 py-4">Price</th>
+      <th class="bg-blue-100 border text-left px-8 py-4">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+        <tr>
+            <td class="border px-8 py-4"><%= product.id%></td>  
+            <td class="border px-8 py-4"><%= product.name%></td>  
+            <td class="border px-8 py-4"><%= product.description%></td>  
+            <td class="border px-8 py-4"><%= product.price_cents%></td>  
+            <td class="border px-8 py-4">
+            <%= link_to "Show", "/admin/products/#{product.id}", class: 'text-blue-700 text-bold text-md rounded-md border-2 border-blue-700 px-8 py-2 h-8' %>
+            <%= link_to "Edit", "/admin/products/#{product.id}/edit", class: 'text-blue-700 text-bold text-md rounded-md border-2 border-blue-700 px-8 py-2 h-8' %>
+            <%= link_to "Delete", "/admin/products/#{product.id}/destroy", data: {turbo_method: :delete} , class: 'text-red-700 text-bold text-md rounded-md border-2 border-red-700 px-8 py-2 h-8' %>
+            </td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>

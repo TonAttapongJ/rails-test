@@ -27,7 +27,8 @@ class ApplicationController < ActionController::Base
 
     private 
     def rescue_unauthorized(err)
-        render json: { success: false, error: err }, status: :unauthorized     
+        redirect_to admin_sessions_sign_in_path
+        # render json: { success: false, error: err }, status: :unauthorized     
     end
 
     def rescue_record_invalid(err)
